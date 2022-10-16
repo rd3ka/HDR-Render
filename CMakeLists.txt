@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.8)
+project(HighDefinitionRender)
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( highDefinitionRender highDefinitionRender.cpp lib/exif.cpp)
+target_link_libraries( highDefinitionRender ${OpenCV_LIBS})
+target_compile_features( highDefinitionRender PRIVATE cxx_std_17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
