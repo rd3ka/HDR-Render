@@ -1,9 +1,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/ocl.hpp>
-#include <iostream>
 #include <filesystem>
 #include <vector>
-#include <algorithm>
 #include "lib/exif.h"
 using namespace std;
 vector <cv::Mat>* imglist;
@@ -82,9 +80,16 @@ static const cv::Mat mergeFrameHDR() {
     return hiDepthRange;
 }
 
-static const cv::Mat toneMap(int mode) {
+static const cv::Mat toneMap(int mode = 0) {
     cv::Mat tm;
     switch(mode) {
+        case 0 : {
+            cv::Ptr <cv::Tonemap> t = cv::createTonemap(2.0f);
+            t->process(mergeFrameHDR(), tm);
+            printf("Tonemapping...\n");
+            break;
+        }
+
         case 1 : {
             cv::Ptr <cv::TonemapReinhard> tR = cv::createTonemapReinhard(1.5,0,0,0);
             tR->process(mergeFrameHDR(), tm);
@@ -105,12 +110,9 @@ static const cv::Mat toneMap(int mode) {
             printf("Tonemapping the H-D-R Image using Mantiuk's Algorithm...\n");
             break;
         }
-        default: {
-            cv::Ptr <cv::Tonemap> t = cv::createTonemap(1.5);
-            t->process(mergeFrameHDR(), tm);
-        }
+        default: { toneMap(0); }
     }
-    return 3 * tm;
+    return tm;
 }
 
 static const cv::Mat exposureFusion(cv::Mat ldr) {
@@ -137,17 +139,16 @@ static const void sysInfo() {
     cv::ocl::getPlatfomsInfo(pf);
 
     cv::ocl::setUseOpenCL(true);
-
     for(size_t i = 0; i < pf.size(); i++) {
         const cv::ocl::PlatformInfo* platform = &pf[i];
         std::cout << "Platform Name: " << platform->name().c_str() << "\n";
         cv::ocl::Device current_device;
         for (int j = 0; j < platform->deviceNumber(); j++) {
             platform->getDevice(current_device, j);
-            int deviceType = current_device.type();
-            cout << "Device Name: " << current_device.name() << endl;
-            cout << "Device Number: " << platform->deviceNumber() << endl;
-            cout << "Device Type: " << deviceType << endl;
+            printf("Device Name: %s\n",current_device.name().c_str());
+            printf("Device Number: %d\n", platform->deviceNumber());
+            printf("Device Type: %d\n", current_device.type());
+            printf("Device Driver Version %s\n",current_device.driverVersion().c_str());
         }
     }
 }
