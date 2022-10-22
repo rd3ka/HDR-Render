@@ -1,12 +1,12 @@
 [
 {
-  "directory": "/home/rdeka/Documents/Source File/HiDefRender/build",
-  "command": "/usr/bin/c++  -isystem /usr/local/include/opencv4  -std=c++17 -o CMakeFiles/highDefinitionRender.dir/highDefinitionRender.cpp.o -c \"/home/rdeka/Documents/Source File/HiDefRender/highDefinitionRender.cpp\"",
-  "file": "/home/rdeka/Documents/Source File/HiDefRender/highDefinitionRender.cpp"
+  "directory": "/home/rdeka/Documents/Source File/HiDyRangeRender/build",
+  "command": "/usr/bin/c++  -isystem /usr/local/include/opencv4  -std=c++17 -o CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o -c \"/home/rdeka/Documents/Source File/HiDyRangeRender/highDynamicRange.cpp\"",
+  "file": "/home/rdeka/Documents/Source File/HiDyRangeRender/highDynamicRange.cpp"
 },
 {
-  "directory": "/home/rdeka/Documents/Source File/HiDefRender/build",
-  "command": "/usr/bin/c++  -isystem /usr/local/include/opencv4  -std=c++17 -o CMakeFiles/highDefinitionRender.dir/lib/exif.cpp.o -c \"/home/rdeka/Documents/Source File/HiDefRender/lib/exif.cpp\"",
-  "file": "/home/rdeka/Documents/Source File/HiDefRender/lib/exif.cpp"
+  "directory": "/home/rdeka/Documents/Source File/HiDyRangeRender/build",
+  "command": "/usr/bin/c++  -isystem /usr/local/include/opencv4  -std=c++17 -o CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o -c \"/home/rdeka/Documents/Source File/HiDyRangeRender/lib/EasyExif/exif.cpp\"",
+  "file": "/home/rdeka/Documents/Source File/HiDyRangeRender/lib/EasyExif/exif.cpp"
 }
 ]

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/rdeka/Documents/Source File/HiDefRender"
+CMAKE_SOURCE_DIR = "/home/rdeka/Documents/Source File/HiDyRangeRender"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/rdeka/Documents/Source File/HiDefRender/build"
+CMAKE_BINARY_DIR = "/home/rdeka/Documents/Source File/HiDyRangeRender/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/rdeka/Documents/Source File/HiDefRender/build/CMakeFiles" "/home/rdeka/Documents/Source File/HiDefRender/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/rdeka/Documents/Source File/HiDyRangeRender/build/CMakeFiles" "/home/rdeka/Documents/Source File/HiDyRangeRender/build//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/rdeka/Documents/Source File/HiDefRender/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/rdeka/Documents/Source File/HiDyRangeRender/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -117,65 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named highDefinitionRender
+# Target rules for targets named highDynamicRange
 
 # Build rule for target.
-highDefinitionRender: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 highDefinitionRender
-.PHONY : highDefinitionRender
+highDynamicRange: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 highDynamicRange
+.PHONY : highDynamicRange
 
 # fast build rule for target.
-highDefinitionRender/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDefinitionRender.dir/build.make CMakeFiles/highDefinitionRender.dir/build
-.PHONY : highDefinitionRender/fast
+highDynamicRange/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/build
+.PHONY : highDynamicRange/fast
 
-highDefinitionRender.o: highDefinitionRender.cpp.o
-.PHONY : highDefinitionRender.o
-
-# target to build an object file
-highDefinitionRender.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDefinitionRender.dir/build.make CMakeFiles/highDefinitionRender.dir/highDefinitionRender.cpp.o
-.PHONY : highDefinitionRender.cpp.o
-
-highDefinitionRender.i: highDefinitionRender.cpp.i
-.PHONY : highDefinitionRender.i
-
-# target to preprocess a source file
-highDefinitionRender.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDefinitionRender.dir/build.make CMakeFiles/highDefinitionRender.dir/highDefinitionRender.cpp.i
-.PHONY : highDefinitionRender.cpp.i
-
-highDefinitionRender.s: highDefinitionRender.cpp.s
-.PHONY : highDefinitionRender.s
-
-# target to generate assembly for a file
-highDefinitionRender.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDefinitionRender.dir/build.make CMakeFiles/highDefinitionRender.dir/highDefinitionRender.cpp.s
-.PHONY : highDefinitionRender.cpp.s
-
-lib/exif.o: lib/exif.cpp.o
-.PHONY : lib/exif.o
+highDynamicRange.o: highDynamicRange.cpp.o
+.PHONY : highDynamicRange.o
 
 # target to build an object file
-lib/exif.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDefinitionRender.dir/build.make CMakeFiles/highDefinitionRender.dir/lib/exif.cpp.o
-.PHONY : lib/exif.cpp.o
+highDynamicRange.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o
+.PHONY : highDynamicRange.cpp.o
 
-lib/exif.i: lib/exif.cpp.i
-.PHONY : lib/exif.i
+highDynamicRange.i: highDynamicRange.cpp.i
+.PHONY : highDynamicRange.i
 
 # target to preprocess a source file
-lib/exif.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDefinitionRender.dir/build.make CMakeFiles/highDefinitionRender.dir/lib/exif.cpp.i
-.PHONY : lib/exif.cpp.i
+highDynamicRange.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.i
+.PHONY : highDynamicRange.cpp.i
 
-lib/exif.s: lib/exif.cpp.s
-.PHONY : lib/exif.s
+highDynamicRange.s: highDynamicRange.cpp.s
+.PHONY : highDynamicRange.s
 
 # target to generate assembly for a file
-lib/exif.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDefinitionRender.dir/build.make CMakeFiles/highDefinitionRender.dir/lib/exif.cpp.s
-.PHONY : lib/exif.cpp.s
+highDynamicRange.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s
+.PHONY : highDynamicRange.cpp.s
+
+lib/EasyExif/exif.o: lib/EasyExif/exif.cpp.o
+.PHONY : lib/EasyExif/exif.o
+
+# target to build an object file
+lib/EasyExif/exif.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o
+.PHONY : lib/EasyExif/exif.cpp.o
+
+lib/EasyExif/exif.i: lib/EasyExif/exif.cpp.i
+.PHONY : lib/EasyExif/exif.i
+
+# target to preprocess a source file
+lib/EasyExif/exif.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i
+.PHONY : lib/EasyExif/exif.cpp.i
+
+lib/EasyExif/exif.s: lib/EasyExif/exif.cpp.s
+.PHONY : lib/EasyExif/exif.s
+
+# target to generate assembly for a file
+lib/EasyExif/exif.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s
+.PHONY : lib/EasyExif/exif.cpp.s
 
 # Help Target
 help:
@@ -185,13 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... highDefinitionRender"
-	@echo "... highDefinitionRender.o"
-	@echo "... highDefinitionRender.i"
-	@echo "... highDefinitionRender.s"
-	@echo "... lib/exif.o"
-	@echo "... lib/exif.i"
-	@echo "... lib/exif.s"
+	@echo "... highDynamicRange"
+	@echo "... highDynamicRange.o"
+	@echo "... highDynamicRange.i"
+	@echo "... highDynamicRange.s"
+	@echo "... lib/EasyExif/exif.o"
+	@echo "... lib/EasyExif/exif.i"
+	@echo "... lib/EasyExif/exif.s"
 .PHONY : help
 
 
