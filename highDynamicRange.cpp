@@ -9,6 +9,8 @@ using namespace std;
 vector <cv::Mat>* imglist;
 vector <float>* eTL;
 
+static mutex m, p;
+
 static const float easyEXIFshow(string path) {
     FILE *filePointer = fopen(path.c_str(), "rb");
     if (!filePointer) { 
@@ -115,12 +117,37 @@ static const cv::Mat exposureFusion() {
     cv::Mat eFI;
     cv::Ptr<cv::MergeMertens> mM = cv::createMergeMertens();
     mM->process(*imglist, eFI);
-    delete imglist;
     delete eTL;
     return eFI;
 }
 
+static const void multiComputeHelper(vector <cv::Mat>& ppline, int mode) {
+    lock_guard <mutex> guard(p); 
+    {
+        printf("i'm in %d thread\n",mode);
+    }
+    lock_guard <mutex> lock(m);
+    {
+        ppline.emplace_back(toneMap(mode));
+    }
+}
+
 static const void multiCompute() {
+    /* function breaks */
+    vector <cv::Mat>* ppline = new vector <cv::Mat>; 
+    cv::Mat hstack;
+
+    vector <thread> ts;
+    for(int i = 0 ; i < 4; i++) 
+        ts.emplace_back([&] () { multiComputeHelper(*ppline, i); });
+
+    for(auto &t : ts) t.join();
+    
+    cv::Ptr <cv::MergeMertens> merge = cv::createMergeMertens();
+    ppline->emplace_back(exposureFusion());
+    merge->process(*ppline,hstack);
+
+    saveTo(hstack);
 }
 
 static const void showImgList() {
@@ -157,6 +184,6 @@ int main(int argc, char** argv) {
     sysInfo();
     imgRead(argv[1]);
     alignImages();
-    saveTo(exposureFusion());
+    multiCompute();
     return 0;
 }
