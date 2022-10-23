@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <vector>
 #include <queue>
-#include <thread>
+#include <future>
 #include "lib/EasyExif/exif.h"
 using namespace std;
 vector <cv::Mat>* imglist;
@@ -59,19 +59,23 @@ static const void alignImages() {
     return;
 }
 
-static const void saveTo(cv::Mat img) {
+static const void convert(cv::Mat& img, int mode = 2) {
     vector <int> compression_params;
     compression_params.emplace_back(cv::IMWRITE_JPEG_QUALITY);
     compression_params.emplace_back(100);
 
     img.convertTo(img, CV_8UC3, 255.0);
-    cv::imwrite("out.jpeg", img, compression_params);
+
+    if (mode == 2)
+        cv::imwrite("out.jpeg", img, compression_params);
+    else
+        printf("image converted!\n");
 }
 
 static const cv::Mat caliberateCRF() {
-    printf("Caliberating Camera Response Function to be Linear...\n");
     cv::Mat response;
     cv::Ptr <cv::CalibrateDebevec> cD = cv::createCalibrateDebevec();
+    printf("Caliberating Camera Response Function to be Linear...\n");
     cD->process(*imglist, response, *eTL); 
     return response;
 }
@@ -79,8 +83,8 @@ static const cv::Mat caliberateCRF() {
 static const cv::Mat mergeFrameHDR(cv::Mat cCRF) {
     cv::Mat hiDepthRange;
     cv::Ptr <cv::MergeDebevec> mD = cv::createMergeDebevec();
-    mD->process(*imglist, hiDepthRange, *eTL, cCRF);
     printf("Processing High Dynamic Range rendering...\n");
+    mD->process(*imglist, hiDepthRange, *eTL, cCRF);
     return hiDepthRange;
 }
 
@@ -89,27 +93,28 @@ static const cv::Mat toneMap(int mode = 2) {
     switch(mode) {
 
         case 1 : {
-            cv::Ptr <cv::TonemapReinhard> tR = cv::createTonemapReinhard(1.5,0.7,0,0);
-            tR->process(mergeFrameHDR(caliberateCRF()), tm);
             printf("Tonemapping the HDR Image using Reinhard's Algorithm...\n");
+            cv::Ptr <cv::TonemapReinhard> tR = cv::createTonemapReinhard();
+            tR->process(mergeFrameHDR(caliberateCRF()), tm);
             break;
         }
         
         case 2 : {
-            cv::Ptr <cv::TonemapDrago> tD = cv::createTonemapDrago(2.1,2.5,0.80f);
-            tD->process(mergeFrameHDR(caliberateCRF()), tm);
             printf("Tonemapping the HDR Image using Drago's Algorithm...\n");
+            cv::Ptr <cv::TonemapDrago> tD = cv::createTonemapDrago();
+            tD->process(mergeFrameHDR(caliberateCRF()), tm);
             break;
         }
 
         case 3 : {
-            cv::Ptr <cv::TonemapMantiuk> tM = cv::createTonemapMantiuk(2.35,0.9,1.5);
-            tM->process(mergeFrameHDR(caliberateCRF()), tm);
             printf("Tonemapping the HDR Image using Mantiuk's Algorithm...\n");
+            cv::Ptr <cv::TonemapMantiuk> tM = cv::createTonemapMantiuk();
+            tM->process(mergeFrameHDR(caliberateCRF()), tm);
             break;
         }
         default: { toneMap(2); }
     }
+    convert(tm,1);
     return tm;
 }
 
@@ -121,33 +126,21 @@ static const cv::Mat exposureFusion() {
     return eFI;
 }
 
-static const void multiComputeHelper(vector <cv::Mat>& ppline, int mode) {
-    lock_guard <mutex> guard(p); 
-    {
-        printf("i'm in %d thread\n",mode);
-    }
-    lock_guard <mutex> lock(m);
-    {
-        ppline.emplace_back(toneMap(mode));
-    }
-}
-
 static const void multiCompute() {
-    /* function breaks */
+    /* function should not break? */
     vector <cv::Mat>* ppline = new vector <cv::Mat>; 
     cv::Mat hstack;
 
-    vector <thread> ts;
-    for(int i = 0 ; i < 4; i++) 
-        ts.emplace_back([&] () { multiComputeHelper(*ppline, i); });
+    vector <future <const cv::Mat>> fo;
+    for(int i = 0; i < 3; i++)
+        fo.emplace_back(async(toneMap, i + 1));
 
-    for(auto &t : ts) t.join();
-    
+    for(auto& f : fo)  
+        ppline->emplace_back(f.get());
+
     cv::Ptr <cv::MergeMertens> merge = cv::createMergeMertens();
-    ppline->emplace_back(exposureFusion());
-    merge->process(*ppline,hstack);
-
-    saveTo(hstack);
+    merge->process(*ppline, hstack);
+    convert(hstack);
 }
 
 static const void showImgList() {

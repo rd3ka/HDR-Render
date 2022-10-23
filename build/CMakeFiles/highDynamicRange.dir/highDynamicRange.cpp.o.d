@@ -346,7 +346,8 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /usr/include/c++/12.2.0/bits/fs_fwd.h \
  /usr/include/c++/12.2.0/bits/fs_path.h /usr/include/c++/12.2.0/codecvt \
  /usr/include/c++/12.2.0/bits/fs_dir.h \
- /usr/include/c++/12.2.0/bits/fs_ops.h /usr/include/c++/12.2.0/thread \
- /usr/include/c++/12.2.0/bits/std_thread.h \
- /usr/include/c++/12.2.0/bits/this_thread_sleep.h \
+ /usr/include/c++/12.2.0/bits/fs_ops.h /usr/include/c++/12.2.0/future \
+ /usr/include/c++/12.2.0/condition_variable \
+ /usr/include/c++/12.2.0/bits/atomic_futex.h \
+ /usr/include/c++/12.2.0/atomic /usr/include/c++/12.2.0/bits/std_thread.h \
  /home/rdeka/Documents/Source\ File/HiDyRangeRender/lib/EasyExif/exif.h
