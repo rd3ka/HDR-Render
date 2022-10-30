@@ -2,16 +2,18 @@
 #include <opencv2/core/ocl.hpp>
 #include <filesystem>
 #include <vector>
-#include <queue>
+#include <thread>
+#include <mutex>
 #include <future>
+#include <algorithm>
 #include "lib/EasyExif/exif.h"
 using namespace std;
-vector <cv::Mat>* imglist;
-vector <float>* eTL;
 
-static mutex m, p;
+mutex m;
+static vector <cv::Mat>* imglist;
+static vector <float>* eTL;
 
-static const float easyEXIFshow(string path) {
+static const float easyEXIFshow(string path, int mode = 1) {
     FILE *filePointer = fopen(path.c_str(), "rb");
     if (!filePointer) { 
         printf("Cannot open file! Abort\n"); 
@@ -37,17 +39,24 @@ static const float easyEXIFshow(string path) {
         printf("Error parsing exif info! Abort\n"); 
         return -3;
     }
+    // printf("%d x %d\n",exif.ImageWidth, exif.ImageHeight);
     return exif.ExposureTime;
 }
 
 static const void imgRead(string path) {
     printf("Reading image and information..\n");
+    vector <string> *filelist = new vector <string>;
     imglist = new vector <cv::Mat>;
 
     eTL = new vector <float>;
-    for(const auto & entry : filesystem::directory_iterator(path)) {
-        imglist->emplace_back(cv::imread(entry.path()));
-        eTL->emplace_back(easyEXIFshow(entry.path()));
+    for(const auto & entry : filesystem::directory_iterator(path)) 
+        filelist->emplace_back(entry.path());
+
+    sort(filelist->begin(), filelist->end());
+    
+    for(const string &file : *filelist) {
+        imglist->emplace_back(cv::imread(file,cv::IMREAD_UNCHANGED));
+        eTL->emplace_back(easyEXIFshow(file));
     }
     return;
 }
@@ -60,16 +69,13 @@ static const void alignImages() {
 }
 
 static const void convert(cv::Mat& img, int mode = 2) {
-    vector <int> compression_params;
-    compression_params.emplace_back(cv::IMWRITE_JPEG_QUALITY);
-    compression_params.emplace_back(100);
-
+    vector <int> *compression_params = new vector <int> {cv::IMWRITE_JPEG_QUALITY,100};
     img.convertTo(img, CV_8UC3, 255.0);
-
-    if (mode == 2)
-        cv::imwrite("out.jpeg", img, compression_params);
+    if (mode == 2) 
+        cv::imwrite("out.jpeg", img, *compression_params);
     else
         printf("image converted!\n");
+    delete compression_params;
 }
 
 static const cv::Mat caliberateCRF() {
@@ -112,24 +118,27 @@ static const cv::Mat toneMap(int mode = 2) {
             tM->process(mergeFrameHDR(caliberateCRF()), tm);
             break;
         }
+
         default: { toneMap(2); }
+
     }
     convert(tm,1);
     return tm;
 }
 
-static const cv::Mat exposureFusion() {
-    cv::Mat eFI;
-    cv::Ptr<cv::MergeMertens> mM = cv::createMergeMertens();
-    mM->process(*imglist, eFI);
+static const cv::Mat exposureFusion(cv::Mat& eFI) {
+    lock_guard <mutex> lock(m); 
+    {
+        cv::Ptr<cv::MergeMertens> mM = cv::createMergeMertens();
+        mM->process(*imglist, eFI);
+    }
     delete eTL;
     return eFI;
 }
 
-static const void multiCompute() {
+static const cv::Mat multiComputeTonemap(cv::Mat hstack) {
     /* function should not break? */
     vector <cv::Mat>* ppline = new vector <cv::Mat>; 
-    cv::Mat hstack;
 
     vector <future <const cv::Mat>> fo;
     for(int i = 0; i < 3; i++)
@@ -137,10 +146,26 @@ static const void multiCompute() {
 
     for(auto& f : fo)  
         ppline->emplace_back(f.get());
-
+    
     cv::Ptr <cv::MergeMertens> merge = cv::createMergeMertens();
     merge->process(*ppline, hstack);
     convert(hstack);
+
+    return hstack;
+}
+
+static const void process() {
+    cv::Mat eFI,hstack;
+    thread t1(multiComputeTonemap, ref(hstack)); 
+    thread t2(exposureFusion, ref(eFI));
+
+    t1.join();
+    t2.join();
+    
+    cv::Mat out;
+    cv::Ptr <cv::MergeMertens> m = cv::createMergeMertens();
+    m->process(vector <cv::Mat>{eFI,hstack}, out);
+    convert(out);
 }
 
 static const void showImgList() {
@@ -176,7 +201,9 @@ static const void sysInfo() {
 int main(int argc, char** argv) {
     sysInfo();
     imgRead(argv[1]);
+    printf("reading done\n");
     alignImages();
-    multiCompute();
+    printf("aligning done\n");
+    process();
     return 0;
 }
