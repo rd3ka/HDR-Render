@@ -1,2 +1,5 @@
 .cache
 build
+test
+test.cpp
+c_cpp_properties.json
