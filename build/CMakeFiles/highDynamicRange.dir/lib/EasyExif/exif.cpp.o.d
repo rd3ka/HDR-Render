@@ -1,7 +1,7 @@
 CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: \
- /home/rdeka/Documents/Source\ File/HiDyRangeRender/lib/EasyExif/exif.cpp \
+ /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp \
  /usr/include/stdc-predef.h \
- /home/rdeka/Documents/Source\ File/HiDyRangeRender/lib/EasyExif/exif.h \
+ /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.h \
  /usr/include/c++/12.2.0/string \
  /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/os_defines.h \

@@ -2,13 +2,16 @@
 #include <algorithm>
 #include <filesystem>
 #include <future>
-#include <iostream>
 #include <opencv2/core/ocl.hpp>
 #include <opencv2/opencv.hpp>
 #include <vector>
 using namespace std;
 
 #define _MAX_TONEMAP 3
+
+static vector<cv::Mat> imageList;
+static vector<float> exposureTimeList;
+static future <const cv::Mat> futureExpFuse;
 
 class easyEXIF {
 private:
@@ -47,7 +50,7 @@ public:
 };
 
 static const cv::Mat convert(cv::Mat img) {
-    img.convertTo(img, CV_8U, 255);
+    img.convertTo(img, CV_8U, 255.0);
     return img;
 }
 
@@ -58,43 +61,41 @@ static const void save(cv::Mat img, string filename = "out.jpeg") {
     delete compression_params;
 }
 
-static const void imgRead(string path, vector<cv::Mat> &imgList,
-                          vector<float> &exposureTimeList) {
+static const void imgRead(string path) {
     std::cout << "Reading Image & Image Metadata" << std::endl;
     vector<string> *filelist = new vector<string>;
     for (const auto &entry : filesystem::directory_iterator(path))
         filelist->emplace_back(entry.path());
 
-    for (const string &file : *filelist) {
-        imgList.emplace_back(cv::imread(file));
+    sort(filelist->begin(), filelist->end());
+
+    for (const string file : *filelist) {
+        imageList.emplace_back(cv::imread(file));
         exposureTimeList.emplace_back(easyEXIF(file).getExposureTime());
     }
     return;
 }
 
-static const void alignImages(vector<cv::Mat> &imgList) {
+static const void alignImages() {
     printf("Aligning images using Median Threshold Boundary Algorithm..\n");
     cv::Ptr<cv::AlignMTB> aMTB = cv::createAlignMTB();
-    aMTB->process(imgList, imgList);
+    aMTB->process(imageList, imageList);
     return;
 }
 
-static const cv::Mat caliberateCRF(vector<cv::Mat> imgList,
-                                   vector<float> exposureTimeList) {
+static const cv::Mat caliberateCRF() {
     cv::Mat response;
     cv::Ptr<cv::CalibrateDebevec> cD = cv::createCalibrateDebevec();
     printf("Caliberating Camera Response Function to be Linear...\n");
-    cD->process(imgList, response, exposureTimeList);
+    cD->process(imageList, response, exposureTimeList);
     return response;
 }
 
-static const cv::Mat mergeFrameHDR(vector<cv::Mat> imgList,
-                                   vector<float> exposureTimeList,
-                                   cv::Mat CRFresp) {
+static const cv::Mat mergeFrameHDR( cv::Mat CRFresp ) {
     cv::Mat hiDepthRange;
     cv::Ptr<cv::MergeDebevec> mD = cv::createMergeDebevec();
     printf("Processing High Dynamic Range rendering...\n");
-    mD->process(imgList, hiDepthRange, exposureTimeList, CRFresp);
+    mD->process(imageList, hiDepthRange, exposureTimeList, CRFresp);
     return hiDepthRange;
 }
 
@@ -130,10 +131,10 @@ static const cv::Mat toneMap(cv::Mat hdr, int mode) {
     return convert(tm);
 }
 
-static const cv::Mat exposureFusion(vector<cv::Mat> imgL) {
+static const cv::Mat exposureFusion(vector <cv::Mat> im = imageList) {
     cv::Mat exposureFusedImage;
     cv::Ptr<cv::MergeMertens> mM = cv::createMergeMertens();
-    mM->process(imgL, exposureFusedImage);
+    mM->process(imageList, exposureFusedImage);
     return convert(exposureFusedImage);
 }
 
@@ -143,36 +144,43 @@ static vector<cv::Mat> computeTonemap(cv::Mat HDR) {
     vector<future<const cv::Mat>> futureObject;
     for (int i = 1; i <= _MAX_TONEMAP; i++)
         futureObject.emplace_back(async(toneMap, HDR, i));
-
+    
     for (auto &obj : futureObject)
         ppline.emplace_back(obj.get());
 
     return ppline;
 }
 
-static const void process(vector<cv::Mat> imgList,
-                          vector<float> exposureTimeList) {
+static const void process() {
+    futureExpFuse = async(exposureFusion,imageList);
     cv::Mat finalImage;
     vector<cv::Mat> ppline;
-    cv::Mat HighDynamicRange = mergeFrameHDR(
-                                   imgList, exposureTimeList, caliberateCRF(imgList, exposureTimeList));
-
-    ppline.emplace_back(computeTonemap(HighDynamicRange));
-    ppline.insert(ppline.end(), imgList.begin(), imgList.end());
-
+    cv::Mat HighDynamicRange = mergeFrameHDR(caliberateCRF());
+    vector<cv::Mat> tonemappedImageList = computeTonemap(HighDynamicRange);
+    ppline.insert(ppline.end(), tonemappedImageList.begin(),
+                  tonemappedImageList.end());
+    ppline.emplace_back(futureExpFuse.get()); 
     finalImage = exposureFusion(ppline);
     save(finalImage);
 }
 
-static const void showImageList(vector<cv::Mat> imgList,
-                                vector<float> exposureTimeList) {
+static const void debugFunc() {
+    cv::Mat eF = exposureFusion(imageList);
+    cv::Mat HighDynamicRange = mergeFrameHDR(caliberateCRF());
 
-    for (int i = 0; i < static_cast<int>(imgList.size()); i++) {
+    save(eF, "eF.jpeg");
+    save(HighDynamicRange, "hdr.jpeg");
+}
+
+static const void showImageList() {
+
+    for (int i = 0; i < static_cast<int>(imageList.size()); i++) {
         cv::namedWindow("Display Image", cv::WINDOW_NORMAL);
         cv::resizeWindow("Display Image", 600, 400);
-        cv::imshow("Display Image", imgList[i]);
+        cv::imshow("Display Image", imageList[i]);
         printf("ExposureTime : %f s\n", exposureTimeList.at(i));
         cv::waitKey(0);
+        cv::destroyAllWindows();
     }
     return;
 }
@@ -199,10 +207,8 @@ static const void sysInfo() {
 
 int main(int argc, char **argv) {
     sysInfo();
-    vector<cv::Mat> imageList;
-    vector<float> exposureTimeList;
-    imgRead(argv[1], imageList, exposureTimeList);
-    alignImages(imageList);
-    process(imageList, exposureTimeList);
+    imgRead(argv[1]);
+    alignImages();
+    process();
     return 0;
 }

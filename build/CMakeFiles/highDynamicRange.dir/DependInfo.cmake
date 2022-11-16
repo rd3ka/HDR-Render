@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/rdeka/Documents/Source File/HiDyRangeRender/highDynamicRange.cpp" "CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o" "gcc" "CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o.d"
-  "/home/rdeka/Documents/Source File/HiDyRangeRender/lib/EasyExif/exif.cpp" "CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o" "gcc" "CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o.d"
+  "/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/highDynamicRange.cpp" "CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o" "gcc" "CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o.d"
+  "/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp" "CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o" "gcc" "CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o.d"
   )
 
 # Targets to which this target links.

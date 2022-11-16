@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/rdeka/Documents/Source File/HiDyRangeRender"
+CMAKE_SOURCE_DIR = /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/rdeka/Documents/Source File/HiDyRangeRender/build"
+CMAKE_BINARY_DIR = /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/highDynamicRange.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/highDynamicRange.dir/progress.make
 include CMakeFiles/highDynamicRange.dir/flags.make
 
 CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: CMakeFiles/highDynamicRange.dir/flags.make
-CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: /home/rdeka/Documents/Source\ File/HiDyRangeRender/highDynamicRange.cpp
+CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/highDynamicRange.cpp
 CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: CMakeFiles/highDynamicRange.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/rdeka/Documents/Source File/HiDyRangeRender/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o -MF CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o.d -o CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o -c "/home/rdeka/Documents/Source File/HiDyRangeRender/highDynamicRange.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o -MF CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o.d -o CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o -c /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/highDynamicRange.cpp
 
 CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/rdeka/Documents/Source File/HiDyRangeRender/highDynamicRange.cpp" > CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/highDynamicRange.cpp > CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.i
 
 CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/rdeka/Documents/Source File/HiDyRangeRender/highDynamicRange.cpp" -o CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/highDynamicRange.cpp -o CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s
 
 CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: CMakeFiles/highDynamicRange.dir/flags.make
-CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: /home/rdeka/Documents/Source\ File/HiDyRangeRender/lib/EasyExif/exif.cpp
+CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp
 CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: CMakeFiles/highDynamicRange.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/rdeka/Documents/Source File/HiDyRangeRender/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o -MF CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o.d -o CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o -c "/home/rdeka/Documents/Source File/HiDyRangeRender/lib/EasyExif/exif.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o -MF CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o.d -o CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o -c /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp
 
 CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/rdeka/Documents/Source File/HiDyRangeRender/lib/EasyExif/exif.cpp" > CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp > CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i
 
 CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/rdeka/Documents/Source File/HiDyRangeRender/lib/EasyExif/exif.cpp" -o CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp -o CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s
 
 # Object files for target highDynamicRange
 highDynamicRange_OBJECTS = \
@@ -124,7 +124,7 @@ highDynamicRange: /usr/local/lib/libopencv_flann.so.4.6.0
 highDynamicRange: /usr/local/lib/libopencv_imgproc.so.4.6.0
 highDynamicRange: /usr/local/lib/libopencv_core.so.4.6.0
 highDynamicRange: CMakeFiles/highDynamicRange.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/rdeka/Documents/Source File/HiDyRangeRender/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable highDynamicRange"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable highDynamicRange"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/highDynamicRange.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -136,6 +136,6 @@ CMakeFiles/highDynamicRange.dir/clean:
 .PHONY : CMakeFiles/highDynamicRange.dir/clean
 
 CMakeFiles/highDynamicRange.dir/depend:
-	cd "/home/rdeka/Documents/Source File/HiDyRangeRender/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/rdeka/Documents/Source File/HiDyRangeRender" "/home/rdeka/Documents/Source File/HiDyRangeRender" "/home/rdeka/Documents/Source File/HiDyRangeRender/build" "/home/rdeka/Documents/Source File/HiDyRangeRender/build" "/home/rdeka/Documents/Source File/HiDyRangeRender/build/CMakeFiles/highDynamicRange.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles/highDynamicRange.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/highDynamicRange.dir/depend
 
