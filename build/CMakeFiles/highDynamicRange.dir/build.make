@@ -83,30 +83,62 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/highDynamicRange.cpp -o CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s
 
-CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: CMakeFiles/highDynamicRange.dir/flags.make
-CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp
-CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o: CMakeFiles/highDynamicRange.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o -MF CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o.d -o CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o -c /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o: CMakeFiles/highDynamicRange.dir/flags.make
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o: /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/exif.cpp
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o: CMakeFiles/highDynamicRange.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o -MF CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o.d -o CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o -c /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/exif.cpp
 
-CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp > CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/exif.cpp > CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.i
 
-CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.cpp -o CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/exif.cpp -o CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.s
+
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o: CMakeFiles/highDynamicRange.dir/flags.make
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o: /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/easyEXIF.cpp
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o: CMakeFiles/highDynamicRange.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o -MF CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o.d -o CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o -c /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/easyEXIF.cpp
+
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/easyEXIF.cpp > CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.i
+
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/easyEXIF.cpp -o CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.s
+
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o: CMakeFiles/highDynamicRange.dir/flags.make
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o: /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/imageHandler.cpp
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o: CMakeFiles/highDynamicRange.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o -MF CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o.d -o CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o -c /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/imageHandler.cpp
+
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/imageHandler.cpp > CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.i
+
+CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/imageHandler.cpp -o CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.s
 
 # Object files for target highDynamicRange
 highDynamicRange_OBJECTS = \
 "CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o" \
-"CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o"
+"CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o" \
+"CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o" \
+"CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o"
 
 # External object files for target highDynamicRange
 highDynamicRange_EXTERNAL_OBJECTS =
 
 highDynamicRange: CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o
-highDynamicRange: CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o
+highDynamicRange: CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o
+highDynamicRange: CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o
+highDynamicRange: CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o
 highDynamicRange: CMakeFiles/highDynamicRange.dir/build.make
 highDynamicRange: /usr/local/lib/libopencv_gapi.so.4.6.0
 highDynamicRange: /usr/local/lib/libopencv_highgui.so.4.6.0
@@ -124,7 +156,7 @@ highDynamicRange: /usr/local/lib/libopencv_flann.so.4.6.0
 highDynamicRange: /usr/local/lib/libopencv_imgproc.so.4.6.0
 highDynamicRange: /usr/local/lib/libopencv_core.so.4.6.0
 highDynamicRange: CMakeFiles/highDynamicRange.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable highDynamicRange"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable highDynamicRange"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/highDynamicRange.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

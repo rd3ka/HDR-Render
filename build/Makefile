@@ -153,29 +153,77 @@ highDynamicRange.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.s
 .PHONY : highDynamicRange.cpp.s
 
-lib/EasyExif/exif.o: lib/EasyExif/exif.cpp.o
-.PHONY : lib/EasyExif/exif.o
+lib/imageHandling/easyEXIF.o: lib/imageHandling/easyEXIF.cpp.o
+.PHONY : lib/imageHandling/easyEXIF.o
 
 # target to build an object file
-lib/EasyExif/exif.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o
-.PHONY : lib/EasyExif/exif.cpp.o
+lib/imageHandling/easyEXIF.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o
+.PHONY : lib/imageHandling/easyEXIF.cpp.o
 
-lib/EasyExif/exif.i: lib/EasyExif/exif.cpp.i
-.PHONY : lib/EasyExif/exif.i
+lib/imageHandling/easyEXIF.i: lib/imageHandling/easyEXIF.cpp.i
+.PHONY : lib/imageHandling/easyEXIF.i
 
 # target to preprocess a source file
-lib/EasyExif/exif.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.i
-.PHONY : lib/EasyExif/exif.cpp.i
+lib/imageHandling/easyEXIF.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.i
+.PHONY : lib/imageHandling/easyEXIF.cpp.i
 
-lib/EasyExif/exif.s: lib/EasyExif/exif.cpp.s
-.PHONY : lib/EasyExif/exif.s
+lib/imageHandling/easyEXIF.s: lib/imageHandling/easyEXIF.cpp.s
+.PHONY : lib/imageHandling/easyEXIF.s
 
 # target to generate assembly for a file
-lib/EasyExif/exif.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.s
-.PHONY : lib/EasyExif/exif.cpp.s
+lib/imageHandling/easyEXIF.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.s
+.PHONY : lib/imageHandling/easyEXIF.cpp.s
+
+lib/imageHandling/exif.o: lib/imageHandling/exif.cpp.o
+.PHONY : lib/imageHandling/exif.o
+
+# target to build an object file
+lib/imageHandling/exif.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o
+.PHONY : lib/imageHandling/exif.cpp.o
+
+lib/imageHandling/exif.i: lib/imageHandling/exif.cpp.i
+.PHONY : lib/imageHandling/exif.i
+
+# target to preprocess a source file
+lib/imageHandling/exif.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.i
+.PHONY : lib/imageHandling/exif.cpp.i
+
+lib/imageHandling/exif.s: lib/imageHandling/exif.cpp.s
+.PHONY : lib/imageHandling/exif.s
+
+# target to generate assembly for a file
+lib/imageHandling/exif.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.s
+.PHONY : lib/imageHandling/exif.cpp.s
+
+lib/imageHandling/imageHandler.o: lib/imageHandling/imageHandler.cpp.o
+.PHONY : lib/imageHandling/imageHandler.o
+
+# target to build an object file
+lib/imageHandling/imageHandler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o
+.PHONY : lib/imageHandling/imageHandler.cpp.o
+
+lib/imageHandling/imageHandler.i: lib/imageHandling/imageHandler.cpp.i
+.PHONY : lib/imageHandling/imageHandler.i
+
+# target to preprocess a source file
+lib/imageHandling/imageHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.i
+.PHONY : lib/imageHandling/imageHandler.cpp.i
+
+lib/imageHandling/imageHandler.s: lib/imageHandling/imageHandler.cpp.s
+.PHONY : lib/imageHandling/imageHandler.s
+
+# target to generate assembly for a file
+lib/imageHandling/imageHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/highDynamicRange.dir/build.make CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.s
+.PHONY : lib/imageHandling/imageHandler.cpp.s
 
 # Help Target
 help:
@@ -189,9 +237,15 @@ help:
 	@echo "... highDynamicRange.o"
 	@echo "... highDynamicRange.i"
 	@echo "... highDynamicRange.s"
-	@echo "... lib/EasyExif/exif.o"
-	@echo "... lib/EasyExif/exif.i"
-	@echo "... lib/EasyExif/exif.s"
+	@echo "... lib/imageHandling/easyEXIF.o"
+	@echo "... lib/imageHandling/easyEXIF.i"
+	@echo "... lib/imageHandling/easyEXIF.s"
+	@echo "... lib/imageHandling/exif.o"
+	@echo "... lib/imageHandling/exif.i"
+	@echo "... lib/imageHandling/exif.s"
+	@echo "... lib/imageHandling/imageHandler.o"
+	@echo "... lib/imageHandling/imageHandler.i"
+	@echo "... lib/imageHandling/imageHandler.s"
 .PHONY : help
 
 

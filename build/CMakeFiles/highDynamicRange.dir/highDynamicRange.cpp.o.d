@@ -1,7 +1,8 @@
 CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/highDynamicRange.cpp \
  /usr/include/stdc-predef.h \
- /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/EasyExif/exif.h \
+ /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/easyEXIF.h \
+ /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/exif.h \
  /usr/include/c++/12.2.0/string \
  /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -99,14 +100,9 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /usr/include/bits/types/error_t.h \
  /usr/include/c++/12.2.0/bits/charconv.h \
  /usr/include/c++/12.2.0/bits/basic_string.tcc \
- /usr/include/c++/12.2.0/algorithm \
- /usr/include/c++/12.2.0/bits/stl_algo.h \
- /usr/include/c++/12.2.0/bits/algorithmfwd.h \
- /usr/include/c++/12.2.0/bits/stl_heap.h \
- /usr/include/c++/12.2.0/bits/stl_tempbuf.h \
- /usr/include/c++/12.2.0/bits/uniform_int_dist.h \
- /usr/include/c++/12.2.0/pstl/glue_algorithm_defs.h \
- /usr/include/c++/12.2.0/pstl/execution_defs.h \
+ /usr/include/c++/12.2.0/utility \
+ /usr/include/c++/12.2.0/bits/stl_relops.h \
+ /home/rdeka/Documents/SourceFiles/HighDynamicRange-Renderer/lib/imageHandling/imageHandler.h \
  /usr/include/c++/12.2.0/filesystem /usr/include/c++/12.2.0/bits/fs_fwd.h \
  /usr/include/c++/12.2.0/system_error \
  /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/error_constants.h \
@@ -166,17 +162,9 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /usr/include/c++/12.2.0/bits/uses_allocator.h \
  /usr/include/c++/12.2.0/ext/aligned_buffer.h \
  /usr/include/c++/12.2.0/bits/fs_dir.h \
- /usr/include/c++/12.2.0/bits/fs_ops.h /usr/include/c++/12.2.0/future \
- /usr/include/c++/12.2.0/mutex /usr/include/c++/12.2.0/bits/std_mutex.h \
- /usr/include/c++/12.2.0/bits/unique_lock.h \
- /usr/include/c++/12.2.0/condition_variable \
- /usr/include/c++/12.2.0/bits/atomic_base.h \
- /usr/include/c++/12.2.0/bits/atomic_lockfree_defines.h \
- /usr/include/c++/12.2.0/bits/atomic_futex.h \
- /usr/include/c++/12.2.0/atomic \
- /usr/include/c++/12.2.0/bits/std_function.h \
- /usr/include/c++/12.2.0/bits/std_thread.h \
- /usr/local/include/opencv4/opencv2/core/ocl.hpp \
+ /usr/include/c++/12.2.0/bits/fs_ops.h \
+ /usr/local/include/opencv4/opencv2/opencv.hpp \
+ /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/local/include/opencv4/opencv2/core.hpp \
  /usr/local/include/opencv4/opencv2/core/cvdef.h \
  /usr/local/include/opencv4/opencv2/core/version.hpp \
@@ -190,20 +178,24 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /usr/include/c++/12.2.0/stdlib.h /usr/include/c++/12.2.0/array \
  /usr/include/c++/12.2.0/compare \
  /usr/local/include/opencv4/opencv2/core/base.hpp \
- /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/include/c++/12.2.0/climits \
  /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.0/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.0/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
- /usr/include/bits/uio_lim.h \
+ /usr/include/bits/uio_lim.h /usr/include/c++/12.2.0/algorithm \
+ /usr/include/c++/12.2.0/bits/stl_algo.h \
+ /usr/include/c++/12.2.0/bits/algorithmfwd.h \
+ /usr/include/c++/12.2.0/bits/stl_heap.h \
+ /usr/include/c++/12.2.0/bits/stl_tempbuf.h \
+ /usr/include/c++/12.2.0/bits/uniform_int_dist.h \
+ /usr/include/c++/12.2.0/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/12.2.0/pstl/execution_defs.h \
  /usr/local/include/opencv4/opencv2/core/cvstd.hpp \
  /usr/include/c++/12.2.0/cstring /usr/include/string.h \
- /usr/include/strings.h /usr/include/c++/12.2.0/utility \
- /usr/include/c++/12.2.0/bits/stl_relops.h /usr/include/c++/12.2.0/cmath \
- /usr/include/math.h /usr/include/bits/math-vector.h \
- /usr/include/bits/libm-simd-decl-stubs.h \
+ /usr/include/strings.h /usr/include/c++/12.2.0/cmath /usr/include/math.h \
+ /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
  /usr/include/bits/fp-fast.h \
  /usr/include/bits/mathcalls-helper-functions.h \
@@ -227,6 +219,8 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /usr/include/c++/12.2.0/bits/stl_raw_storage_iter.h \
  /usr/include/c++/12.2.0/bits/align.h /usr/include/c++/12.2.0/bit \
  /usr/include/c++/12.2.0/bits/shared_ptr_atomic.h \
+ /usr/include/c++/12.2.0/bits/atomic_base.h \
+ /usr/include/c++/12.2.0/bits/atomic_lockfree_defines.h \
  /usr/include/c++/12.2.0/backward/auto_ptr.h \
  /usr/include/c++/12.2.0/pstl/glue_memory_defs.h \
  /usr/local/include/opencv4/opencv2/core/neon_utils.hpp \
@@ -250,18 +244,20 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp \
  /usr/include/c++/12.2.0/complex \
  /usr/local/include/opencv4/opencv2/core/utility.hpp \
- /usr/include/c++/12.2.0/functional /usr/include/c++/12.2.0/unordered_map \
+ /usr/include/c++/12.2.0/functional \
+ /usr/include/c++/12.2.0/bits/std_function.h \
+ /usr/include/c++/12.2.0/unordered_map \
  /usr/include/c++/12.2.0/bits/hashtable.h \
  /usr/include/c++/12.2.0/bits/hashtable_policy.h \
  /usr/include/c++/12.2.0/bits/enable_special_members.h \
  /usr/include/c++/12.2.0/bits/node_handle.h \
  /usr/include/c++/12.2.0/bits/unordered_map.h \
- /usr/include/c++/12.2.0/bits/erase_if.h \
+ /usr/include/c++/12.2.0/bits/erase_if.h /usr/include/c++/12.2.0/mutex \
+ /usr/include/c++/12.2.0/bits/std_mutex.h \
+ /usr/include/c++/12.2.0/bits/unique_lock.h \
  /usr/local/include/opencv4/opencv2/core/optim.hpp \
  /usr/local/include/opencv4/opencv2/core/ovx.hpp \
  /usr/local/include/opencv4/opencv2/core/cvdef.h \
- /usr/include/c++/12.2.0/typeindex \
- /usr/local/include/opencv4/opencv2/opencv.hpp \
  /usr/local/include/opencv4/opencv2/calib3d.hpp \
  /usr/local/include/opencv4/opencv2/features2d.hpp \
  /usr/local/include/opencv4/opencv2/flann/miniflann.hpp \
@@ -352,4 +348,10 @@ CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o: \
  /usr/local/include/opencv4/opencv2/stitching/detail/camera.hpp \
  /usr/local/include/opencv4/opencv2/video.hpp \
  /usr/local/include/opencv4/opencv2/video/tracking.hpp \
- /usr/local/include/opencv4/opencv2/video/background_segm.hpp
+ /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
+ /usr/include/c++/12.2.0/future \
+ /usr/include/c++/12.2.0/condition_variable \
+ /usr/include/c++/12.2.0/bits/atomic_futex.h \
+ /usr/include/c++/12.2.0/atomic /usr/include/c++/12.2.0/bits/std_thread.h \
+ /usr/local/include/opencv4/opencv2/core/ocl.hpp \
+ /usr/include/c++/12.2.0/typeindex

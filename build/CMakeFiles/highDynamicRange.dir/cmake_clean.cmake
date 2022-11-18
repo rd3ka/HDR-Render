@@ -1,8 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o"
   "CMakeFiles/highDynamicRange.dir/highDynamicRange.cpp.o.d"
-  "CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o"
-  "CMakeFiles/highDynamicRange.dir/lib/EasyExif/exif.cpp.o.d"
+  "CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o"
+  "CMakeFiles/highDynamicRange.dir/lib/imageHandling/easyEXIF.cpp.o.d"
+  "CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o"
+  "CMakeFiles/highDynamicRange.dir/lib/imageHandling/exif.cpp.o.d"
+  "CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o"
+  "CMakeFiles/highDynamicRange.dir/lib/imageHandling/imageHandler.cpp.o.d"
   "highDynamicRange"
   "highDynamicRange.pdb"
 )
