@@ -5,7 +5,7 @@ High Dynamic Range Image using exposure bracketing. The program implements a hig
 
 ## Dependencies & Installation
 
-* [```OpenCV ```](https://opencv.org/) - FOSS Image processing and computer vision framework
+* [```OpenCV```](https://opencv.org/) - FOSS Image processing and computer vision framework
 * [```CMake```](https://cmake.org/) - FOSS and cross platform software to build, test, automate and package code  
 * [```easyexif```](https://github.com/mayanklahiri/easyexif) - Tiny ISO-compliant C++ EXIF parsing library, third-party dependency free.
 
@@ -49,8 +49,8 @@ Note: Most of the build dependencies come pre-shipped with most modern distribut
 
 ### 6. Generate Build Files
 * Change Directory into the folder of this repository. 
-> Run ```cmake -S . -B build```, keeping in account that you already have created a folder named _build_. This will generate build scripts.
+ Run ```cmake -S . -B build```, keeping in account that you already have created a folder named _build_. This will generate build scripts.
 * Execute ```cmake --build build``` to build the program
 ### 7. Run
 * To execute, Run
-> ```./build/main path/to/folder/having/pictures```
+```./build/main path/to/folder/having/pictures```
