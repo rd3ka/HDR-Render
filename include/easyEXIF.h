@@ -2,7 +2,6 @@
 #include <string>
 #include <utility>
 
-#pragma once
 class easyEXIF {
 private:
     easyexif::EXIFInfo exif;
